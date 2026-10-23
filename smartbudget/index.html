@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartBudget — Chaque euro, à sa place</title>
+  <meta name="description" content="SmartBudget transforme votre salaire en plan clair : dépenses suivies, enveloppes 50/30/20, objectifs d'épargne et simulateur d'achat. Simple, privé, sans tableur.">
+  <meta name="theme-color" content="#116b52">
+  <meta property="og:title" content="SmartBudget — Chaque euro, à sa place">
+  <meta property="og:description" content="Reprenez le contrôle de votre budget : règle 50/30/20 automatique, suivi des dépenses, épargne et simulateur d'achat.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='19' fill='%23116b52'/%3E%3Cpath d='M18 45V32M32 45V19M46 45V27' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='46' cy='20' r='4.5' fill='%23c9f27c'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/app.css?v=20261023-10">
+</head>
+<body>
+  <a class="skip-link" href="#app">Aller au contenu</a>
+
+  <div id="app">
+    <div class="boot" id="boot">
+      <span class="brand-mark" style="--mark-size:46px" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="46" height="46" fill="none"><rect width="32" height="32" rx="10" fill="currentColor"/><path d="M9 22.5V16M16 22.5V9.5M23 22.5v-9" stroke="white" stroke-width="3" stroke-linecap="round"/><circle cx="23" cy="10" r="2.2" fill="#c9f27c"/></svg>
+      </span>
+      <p>Chargement de SmartBudget…</p>
+    </div>
+  </div>
+
+  <template id="landing-template">
+    <div class="site">
+      <header class="site-head" id="site-head">
+        <div class="container site-head-inner">
+          <a href="#/" aria-label="SmartBudget, accueil" data-action="go-home">
+            <span class="brand" aria-hidden="true">
+              <span class="brand-mark" style="--mark-size:36px">
+                <svg viewBox="0 0 32 32" width="36" height="36" fill="none"><rect width="32" height="32" rx="10" fill="currentColor"/><path d="M9 22.5V16M16 22.5V9.5M23 22.5v-9" stroke="white" stroke-width="3" stroke-linecap="round"/><circle cx="23" cy="10" r="2.2" fill="#c9f27c"/></svg>
+              </span>
+              <span class="brand-text">Smart<span>Budget</span></span>
+            </span>
+          </a>
+          <nav class="site-nav" aria-label="Navigation principale">
+            <a href="#" data-scroll="fonctionnalites">Fonctionnalités</a>
+            <a href="#" data-scroll="methode">La méthode 50/30/20</a>
+            <a href="#" data-scroll="securite">Sécurité</a>
+            <a href="legal.html">Confidentialité</a>
+          </nav>
+          <div class="site-actions">
+            <button class="icon-btn" type="button" data-action="toggle-theme" aria-label="Changer de thème" title="Changer de thème">
+              <span data-theme-icon></span>
+            </button>
+            <a class="btn btn-ghost" href="#/connexion">Se connecter</a>
+            <a class="btn btn-primary" href="#/connexion">Créer un compte</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow"><b>Nouveau</b> La règle 50/30/20, automatiquement</span>
+              <h1 class="hero-title">Chaque euro, <span class="hl">à sa place</span>.</h1>
+              <p class="hero-sub">
+                SmartBudget transforme votre salaire en plan clair : dépenses suivies, enveloppes
+                50/30/20, épargne programmée et simulateur d'achat. Fini les tableurs, place à la
+                sérénité.
+              </p>
+              <div class="hero-cta">
+                <button class="btn btn-primary btn-lg" type="button" data-action="start-demo">
+                  Essayer la démo gratuite
+                </button>
+                <a class="btn btn-ghost btn-lg" href="#/connexion">Créer mon espace</a>
+              </div>
+              <div class="hero-trust">
+                <span><span data-check></span> Aucune carte bancaire</span>
+                <span><span data-check></span> Données de démo locales</span>
+                <span><span data-check></span> Prêt pour Supabase</span>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="preview">
+                <div class="preview-window">
+                  <div class="preview-bar">
+                    <span class="preview-dots"><i></i><i></i><i></i></span>
+                    <span class="preview-url">smartbudget.app/tableau-de-bord</span>
+                  </div>
+                  <div class="preview-body">
+                    <div class="preview-rail">
+                      <span class="rail-logo">S</span>
+                      <i></i><i></i><i></i><i></i><i></i>
+                    </div>
+                    <div class="preview-screen">
+                      <div class="preview-top">
+                        <div><small>Bonjour Camille</small><strong>Tableau de bord</strong></div>
+                        <span class="mini-health"><i></i> Budget maîtrisé</span>
+                      </div>
+                      <div class="mini-balance">
+                        <span>Reste à vivre / jour</span>
+                        <strong>77,42 € <small>jusqu'au 31</small></strong>
+                        <div class="mini-progress"><i style="width:74%"></i></div>
+                        <div class="mini-balance-foot"><span>Octobre 2026</span><span>9 jours restants</span></div>
+                      </div>
+                      <div class="mini-kpis">
+                        <div class="mini-kpi"><span>Revenus</span><strong>3 195 €</strong><i style="--w:100%;--bar:#2f8f72"></i></div>
+                        <div class="mini-kpi"><span>Dépenses</span><strong>1 864 €</strong><i style="--w:58%;--bar:#e0a23b"></i></div>
+                        <div class="mini-kpi"><span>Épargne</span><strong>450 €</strong><i style="--w:70%;--bar:#5b7cf5"></i></div>
+                      </div>
+                      <div class="mini-chart">
+                        <div class="mini-chart-head"><span>Solde du mois</span><b>+1 031 €</b></div>
+                        <div class="mini-bars">
+                          <i style="height:30%"></i><i style="height:45%"></i><i style="height:38%"></i>
+                          <i style="height:62%"></i><i style="height:54%"></i><i style="height:71%"></i>
+                          <i style="height:66%"></i><i style="height:83%"></i><i style="height:76%"></i>
+                          <i style="height:91%"></i><i style="height:87%"></i><i style="height:100%"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="float-chip chip-a">
+                  <span class="chip-ic"><span data-icon="target"></span></span>
+                  <span><small>Voyage au Japon</small>850 € / 1 200 €</span>
+                </div>
+                <div class="float-chip chip-b">
+                  <span class="chip-ic"><span data-icon="sparkles"></span></span>
+                  <span><small>Puis-je me l'offrir ?</small>Oui, sans toucher aux factures</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="proof" aria-label="En bref">
+          <div class="container proof-grid">
+            <div class="proof-item"><strong>50 / 30 / 20</strong><span>Une méthode éprouvée, trois enveloppes claires</span></div>
+            <div class="proof-item"><strong>0 €</strong><span>Pour commencer, sans engagement ni carte</span></div>
+            <div class="proof-item"><strong>100 %</strong><span>Vos données restent les vôtres, exportables</span></div>
+            <div class="proof-item"><strong>2 min</strong><span>Pour faire le premier point sur votre budget</span></div>
+          </div>
+        </section>
+
+        <section class="section" id="fonctionnalites">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow"><b>Produit</b> Tout au même endroit</span>
+              <h2 class="section-title">Un budget qui travaille pour vous, pas l'inverse.</h2>
+              <p class="section-sub">
+                Du salaire qui tombe au dernier café du mois, SmartBudget relie chaque mouvement à
+                une décision. Vous voyez ce qui reste réellement disponible, pas seulement ce qui est
+                déjà dépensé.
+              </p>
+            </div>
+            <div class="feature-grid">
+              <article class="feature-card">
+                <span class="feature-ic"><span data-icon="income"></span></span>
+                <h3>Revenus & calendrier de paie</h3>
+                <p>Salaire net, primes récurrentes et revenus ponctuels. Un décompte clair jusqu'au prochain jour de paie.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-ic"><span data-icon="receipt"></span></span>
+                <h3>Dépenses sans angle mort</h3>
+                <p>Charges fixes, abonnements et dépenses variables. Les factures à venir restent visibles avant l'oubli.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-tag">Automatique</span>
+                <span class="feature-ic"><span data-icon="chart"></span></span>
+                <h3>Enveloppes 50/30/20</h3>
+                <p>Besoins, envies et épargne se répartissent tout seuls. Ajustez les pourcentages à votre réalité en un geste.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-ic"><span data-icon="target"></span></span>
+                <h3>Objectifs d'épargne</h3>
+                <p>Voyage, fond d'urgence, nouvel ordinateur : suivez l'avancement et la date de réalisation estimée.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-ic"><span data-icon="calculator"></span></span>
+                <h3>« Puis-je me l'offrir ? »</h3>
+                <p>Un montant, une réponse immédiate : ce qui reste dans l'enveloppe plaisirs, sans toucher aux factures ni à l'épargne.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-ic"><span data-icon="shield"></span></span>
+                <h3>Santé financière en direct</h3>
+                <p>Feu vert, vigilance ou alerte. Des graphiques lisibles et un reste à vivre quotidien pour décider sereinement.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-tight" id="methode">
+          <div class="container">
+            <div class="rule-panel">
+              <div class="rule-grid">
+                <div>
+                  <span class="eyebrow"><b>Méthode</b> Simple et éprouvée</span>
+                  <h2>Un salaire. Trois enveloppes. Zéro culpabilité.</h2>
+                  <p>
+                    La règle 50/30/20 donne une intention à chaque euro : la moitié pour l'essentiel,
+                    un tiers pour ce qui rend la vie agréable, un cinquième pour demain. SmartBudget
+                    la calcule sur vos revenus réels et suit vos écarts, mois après mois.
+                  </p>
+                  <div class="rule-bars">
+                    <div class="rule-row"><span>Besoins</span><span class="bar"><i style="width:50%;background:#63d6b1"></i></span><b>50 %</b></div>
+                    <div class="rule-row"><span>Envies</span><span class="bar"><i style="width:30%;background:#f0b95e"></i></span><b>30 %</b></div>
+                    <div class="rule-row"><span>Épargne</span><span class="bar"><i style="width:20%;background:#8ba3ff"></i></span><b>20 %</b></div>
+                  </div>
+                </div>
+                <div class="rule-cards">
+                  <div class="rule-card">
+                    <small>01 · Essentiel</small>
+                    <strong>50 %</strong>
+                    <p>Loyer, courses, transport, énergie, assurances, santé.</p>
+                    <span class="count"><i style="--rc:#63d6b1"></i>Vos besoins vitaux</span>
+                  </div>
+                  <div class="rule-card">
+                    <small>02 · Plaisir</small>
+                    <strong>30 %</strong>
+                    <p>Restaurants, sorties, abonnements loisirs, shopping.</p>
+                    <span class="count"><i style="--rc:#f0b95e"></i>Vos envies maîtrisées</span>
+                  </div>
+                  <div class="rule-card">
+                    <small>03 · Demain</small>
+                    <strong>20 %</strong>
+                    <p>Fond d'urgence, projets, investissements, liberté.</p>
+                    <span class="count"><i style="--rc:#8ba3ff"></i>Votre épargne</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="section-head">
+              <span class="eyebrow"><b>Parcours</b> Trois étapes</span>
+              <h2 class="section-title">Votre premier bilan en quelques minutes.</h2>
+            </div>
+            <div class="steps">
+              <article class="step">
+                <span class="step-num">1</span>
+                <h3>Créez votre espace</h3>
+                <p>Choisissez votre devise et votre jour de paie. En mode démo, tout est déjà rempli pour explorer.</p>
+                <span data-arrow></span>
+              </article>
+              <article class="step">
+                <span class="step-num">2</span>
+                <h3>Posez vos chiffres</h3>
+                <p>Salaire, loyer, abonnements, courses. Les dépenses récurrentes se placent automatiquement chaque mois.</p>
+                <span data-arrow></span>
+              </article>
+              <article class="step">
+                <span class="step-num">3</span>
+                <h3>Décidez avec clarté</h3>
+                <p>Suivez vos enveloppes, simulez un achat, ajustez l'épargne. Le reste à vivre se met à jour en direct.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="securite">
+          <div class="container security-grid">
+            <div>
+              <span class="eyebrow"><b>Sécurité</b> Vos données, votre contrôle</span>
+              <h2 class="section-title">Une base solide, pas un pari.</h2>
+              <p class="section-sub">
+                SmartBudget est conçu pour Supabase : PostgreSQL, authentification et Row Level
+                Security. En démo, rien ne quitte votre navigateur. En production, chaque requête
+                est filtrée par utilisateur.
+              </p>
+              <div class="security-list">
+                <div class="security-item">
+                  <span data-icon="lock"></span>
+                  <div><strong>Row Level Security activée</strong><p>Chaque table est cloisonnée : vous ne pouvez lire et modifier que vos propres lignes.</p></div>
+                </div>
+                <div class="security-item">
+                  <span data-icon="shield"></span>
+                  <div><strong>Aucune clé secrète côté client</strong><p>Seule la clé publique est utilisée. Les règles métier vivent dans PostgreSQL.</p></div>
+                </div>
+                <div class="security-item">
+                  <span data-icon="download"></span>
+                  <div><strong>Export et suppression</strong><p>Bilan CSV, PDF, export complet JSON et suppression définitive du compte.</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="code-card" aria-label="Exemple de politique de sécurité">
+              <div class="code-head">
+                <span><span data-icon="shield"></span> supabase / policies.sql</span>
+                <span>RLS</span>
+              </div>
+              <pre class="code-body"><code><span class="c">-- Chaque utilisateur ne voit que ses dépenses</span>
+<span class="k">alter table</span> expenses
+  <span class="k">enable row level security</span>;
+
+<span class="k">create policy</span> <span class="s">"own_expenses"</span>
+<span class="k">on</span> expenses <span class="k">for all</span>
+<span class="k">using</span> ((<span class="k">select</span> auth.uid()) = user_id)
+<span class="k">with check</span> ((<span class="k">select</span> auth.uid()) = user_id);</code></pre>
+              <div class="code-foot"><span data-icon="check-circle"></span> 8 tables protégées · 32 politiques · triggers métier</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-tight">
+          <div class="container">
+            <div class="cta-band">
+              <div>
+                <h2>Le mois commence aujourd'hui.</h2>
+                <p>Explorez la démo complète avec des données réalistes, ou créez votre espace et branchez votre projet Supabase.</p>
+              </div>
+              <button class="btn btn-lime btn-lg" type="button" data-action="start-demo">
+                Ouvrir la démo
+                <span data-icon="arrow-right"></span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-foot">
+        <div class="container">
+          <div class="foot-grid">
+            <div class="foot-brand">
+              <span class="brand">
+                <span class="brand-mark" style="--mark-size:34px">
+                  <svg viewBox="0 0 32 32" width="34" height="34" fill="none"><rect width="32" height="32" rx="10" fill="currentColor"/><path d="M9 22.5V16M16 22.5V9.5M23 22.5v-9" stroke="white" stroke-width="3" stroke-linecap="round"/><circle cx="23" cy="10" r="2.2" fill="#c9f27c"/></svg>
+                </span>
+                <span class="brand-text">Smart<span>Budget</span></span>
+              </span>
+              <p>Le contrôle de votre budget, sans tableur. SmartBudget — aussi appelé PayControl — est une application de gestion de salaire, de dépenses et d'épargne.</p>
+            </div>
+            <div class="foot-col">
+              <h4>Produit</h4>
+              <a href="#" data-scroll="fonctionnalites">Fonctionnalités</a>
+              <a href="#" data-scroll="methode">Méthode 50/30/20</a>
+              <a href="#/connexion">Se connecter</a>
+              <a href="#" data-action="start-demo">Démo guidée</a>
+            </div>
+            <div class="foot-col">
+              <h4>Ressources</h4>
+              <a href="#/connexion">Créer un compte</a>
+              <a href="legal.html#donnees">Données personnelles</a>
+              <a href="legal.html#mentions">Mentions légales</a>
+              <a href="#/" data-action="go-home">Accueil</a>
+            </div>
+            <div class="foot-col">
+              <h4>Confiance</h4>
+              <a href="legal.html#securite">Sécurité</a>
+              <a href="legal.html#cookies">Cookies</a>
+              <a href="legal.html#contact">Contact</a>
+              <span class="mode-pill" style="margin-top:10px"><i></i>Mode démo local</span>
+            </div>
+          </div>
+          <div class="foot-bottom">
+            <span><span class="dot"></span>© 2026 SmartBudget · PayControl. Tous droits réservés.</span>
+            <span>Conçu pour être simple. Fait pour durer.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </template>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="false"></div>
+  <div id="print-root"></div>
+
+  <noscript>
+    <div class="noscript">SmartBudget a besoin de JavaScript pour fonctionner. Activez-le dans votre navigateur.</div>
+  </noscript>
+
+  <script src="assets/config.js?v=20261023-10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/core.js?v=20261023-10"></script>
+  <script src="assets/ui.js?v=20261023-10"></script>
+  <script src="assets/views.js?v=20261023-10"></script>
+  <script src="assets/app.js?v=20261023-10"></script>
+</body>
+</html>
